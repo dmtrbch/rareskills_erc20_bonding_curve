@@ -1,0 +1,160 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_supply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_reserveBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_reserveRatio",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_depositAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculatePurchaseReturn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_supply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_reserveBalance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint32",
+						"name": "_reserveRatio",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_sellAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateSaleReturn",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "version",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"calculatePurchaseReturn(uint256,uint256,uint32,uint256)": {
+					"details": "given a continuous token supply, reserve token balance, reserve ratio, and a deposit amount (in the reserve token), calculates the return for a given conversion (in the continuous token) Formula: Return = _supply * ((1 + _depositAmount / _reserveBalance) ^ (_reserveRatio / MAX_RESERVE_RATIO) - 1)",
+					"params": {
+						"_depositAmount": "deposit amount, in reserve token",
+						"_reserveBalance": "total reserve token balance",
+						"_reserveRatio": "reserve ratio, represented in ppm, 1-1000000",
+						"_supply": "continuous token total supply"
+					},
+					"returns": {
+						"_0": "purchase return amount"
+					}
+				},
+				"calculateSaleReturn(uint256,uint256,uint32,uint256)": {
+					"details": "given a continuous token supply, reserve token balance, reserve ratio and a sell amount (in the continuous token), calculates the return for a given conversion (in the reserve token) Formula: Return = _reserveBalance * (1 - (1 - _sellAmount / _supply) ^ (1 / (_reserveRatio / MAX_RESERVE_RATIO)))",
+					"params": {
+						"_reserveBalance": "total reserve token balance",
+						"_reserveRatio": "constant reserve ratio, represented in ppm, 1-1000000",
+						"_sellAmount": "sell amount, in the continuous token itself",
+						"_supply": "continuous token total supply"
+					},
+					"returns": {
+						"_0": "sale return amount"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/2_BancorBondingCurve.sol": "BancorBondingCurve"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/1_Power.sol": {
+			"keccak256": "0xa868e716f670b28db2ad57df335745b287e3e1dc983a1749f19904ab925e30a9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://813e2646aeedf99e4727e438c63a010d55892a1882dcb975adc61b7587066d22",
+				"dweb:/ipfs/QmPrjpA67NmXP8BRGixzuA5AJTTE7vbkSw3W2RopD8fDzR"
+			]
+		},
+		"contracts/2_BancorBondingCurve.sol": {
+			"keccak256": "0x240afbbc3899c282a6e5c059ec1cabd34e73ccc40836d65ca5fcba580cccce6c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://378316d6f2abf0f445071f73218fb4fb4ecf158cb8b17d8457cec86405bb0efc",
+				"dweb:/ipfs/QmSie8qzkTpVEDRwBCoWk3S5oUHVVZXdLZkWfEFDfVca4X"
+			]
+		}
+	},
+	"version": 1
+}
